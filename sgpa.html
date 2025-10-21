@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+        .subject{
+            display:flex;
+            flex-direction: column;
+            border: 1px solid rgb(221, 10, 10);
+            background-color: rgb(141 204 227);
+            height:80px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+
+        }
+        .grade{
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            border: 1px solid rgb(82, 79, 79);
+            background-color: rgb(217, 225, 228);
+            height:40px;
+            text-align: left;
+        }
+        .cal-btn{
+            height:30px;
+            width:100px;
+            border-radius: 10px;
+            cursor:pointer;
+            background-color: rgb(252, 248, 250);
+        }
+        .build {
+             width: 100%;
+             max-width: 500px;
+             padding: 10px;
+             box-sizing: border-box;
+        .cal-btn:hover{
+            background-color: rgb(224, 30, 62);
+
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="build">
+        <pre><h2>S-GPA Calculator for
+                Branch:CSE 
+                     Semester:3 </h2></pre>
+        <div class="subject">
+            <h4>CS-211 Probability & Statistics </h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+        </div>
+        <div class="subject">
+            <h4>CS-212 UHV </h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+        </div>
+        <div class="subject">
+            <h4>CS-213 Discrete Mathematical Structures</h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+        </div>
+        <div class="subject">
+            <h4>CS-214 Computer Organisation </h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+        </div>
+        <div class="subject">
+            <h4>CS-215 Design and Analysis of Algorithms </h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+        </div>
+        <div class="subject">
+            <h4>CS-216 Object Oriented Programming </h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+        </div>
+        <div class="subject">
+            <h4>CS-251 Skill Enhancement Course-1 </h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+        </div>
+        <div class="subject">
+            <h4>CS-252 DAA Lab </h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+        </div>
+        <div class="subject">
+            <h4>CS-253 OOP Lab </h4>
+            <select class="grade" name="grade">
+                 <option value="A+">A+</option>
+                 <option value="A">A</option>
+                 <option value="B">B</option>
+                 <option value="C">C</option>
+                 <option value="D">D</option>
+                 <option value="E">E</option>
+                 <option value="F">F</option>
+            </select>
+            
+        </div>
+        <div id="total" style="text-align: center; font-weight: bold; margin-top: 20px;"></div>
+        <div style="text-align: center;" class="sub">
+                <button class = "cal-btn" onclick="cal()">Calculate</button>
+            </div>
+        </div>
+        
+    <script>
+    function cal(){
+        const gradeMap = {"A+": 10,"A": 9,"B": 8,"C": 7,"D": 6,"E": 5,"F":0};
+        const creditHours = [3, 2, 3, 3 , 3, 3, 2, 1.5, 1.5];  
+        //      CS-211, UHV, DMS, CO, DAA, OOP, SEC-1, DAA Lab, OOP Lab
+
+        const grades = document.querySelectorAll('.grade');
+        let totalPoints = 0;
+        let totalCredits = 0;
+
+        grades.forEach((select, index) => {
+            const grade = select.value;
+            const credit = creditHours[index];
+            const gradePoint = gradeMap[grade];
+
+            totalPoints += gradePoint * credit;
+            totalCredits += credit;
+        });
+
+        const sgpa = totalPoints / totalCredits;
+        document.getElementById("total").innerText = 
+            `Total Grade Points: ${totalPoints} | Total Credits: ${totalCredits} | SGPA: ${sgpa.toFixed(2)}`;
+    }
+</script>
+</body>
+</html>

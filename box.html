@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+                background-size: cover;
+        }
+        .container{
+                padding-top:20px;
+                display:flex;
+                justify-content: center;
+                align-items:center;
+                flex-direction:column;
+                background-color: lightblue;
+                height:96vh;
+                background-size: cover;
+       }
+      *{
+                font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+                margin:0px;
+                padding:0px;
+        }
+.selector{
+    display:flex;
+    flex-direction: column;
+    background-color: rgb(179, 233, 174);
+    padding:20px;
+    margin:15px;
+    border-radius: 18px;
+    border-style: ridge;
+
+}
+.internals{
+    display:flex;
+    flex-direction:column;
+    width:350px;
+    margin:10px;
+    padding-right:100px;
+}
+.row{
+    display:flex;
+    padding-left: 12px;
+}
+.attendance{
+    display:flex;
+    flex-direction: column;
+    background-color:rgb(179, 233, 174);
+    width:350px;
+    margin:10px;
+    padding:10px;
+    padding-left: 50px;
+    padding-right:80px;
+    border-radius: 18px;
+    border-style: ridge;
+}
+.sub{
+    display:flex;
+    flex-direction: column;
+    background-color: lightblue;
+    justify-content: center;
+    align-items: center;
+}
+.but{
+    display:flex;
+    flex-direction: column;
+    padding-left: 60px;
+}
+.input-style{
+    height:3vh;
+}
+
+.cal-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgreen;
+    font-size:16px;
+    font-weight: bold;
+    height:48px;
+    width:128px;
+    border-radius:14px;
+    border-style: ridge;
+    cursor: pointer;
+    
+}
+.cal-btn:hover{
+    background-color:rgb(67, 201, 34);
+    color: white;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align:center; padding-left:50px;">Internal Marks Calculator.</h1>
+        <div class="internals">
+            <div class="row">
+                    <div class="selector">
+                           <h4>Sessional-1</h4>
+                           <input class = "input-style" type="number" id="s1">
+                    </div>
+
+                    <div class="selector">
+                           <h4>Sessional-2</h4>
+                          <input class = "input-style" type="number" id="s2">
+                    </div>
+                </div>
+
+            <div class="row">
+                    <div class="selector">
+                              <h4>Assignment-1</h4>
+                              <input class = "input-style" type="number" id="a1">
+                    </div>
+           
+                    <div class="selector">
+                            <h4>Assignment-2</h4>
+                            <input class = "input-style" type="number" id="a2">
+                     </div>
+             </div>
+         
+             <div class="row">
+                     <div class="selector">
+                               <h4>Quiz-1</h4>
+                               <input class = "input-style" type="number" id="q1">
+                      </div>
+           
+                      <div class="selector">
+                                <h4>Quiz-2</h4>
+                                <input class = "input-style" type="number" id="q2">
+                       </div>
+                 </div>
+         </div>
+        <div class="but">
+            <div class="attendance">
+                <h4 style="text-align:center">Attendance in (%)</h4>
+                <input  class = "input-style" type="number" id="atten">
+            </div>
+            <div class="sub">
+                <button class = "cal-btn" onclick="calculateMarks()">Calculate</button></a>
+            </div>
+            <div id="total" style="text-align: center; font-weight: bold; margin-top: 20px;"></div>
+        </div>
+     </div>
+     <script>
+function calculateMarks() {
+    let se1 = parseFloat(document.getElementById("s1").value) || 0;
+    let se2 = parseFloat(document.getElementById("s2").value) || 0;
+    let as1 = parseFloat(document.getElementById("a1").value) || 0;
+    let as2 = parseFloat(document.getElementById("a2").value) || 0;
+    let z1 = parseFloat(document.getElementById("q1").value) || 0;
+    let z2 = parseFloat(document.getElementById("q2").value) || 0;
+    let a = parseFloat(document.getElementById("atten").value) || 0;
+  
+     let total=0;
+    if(se1>se2){
+        total=se1*8/10+se2*2/10;
+    }
+    else{
+        total=se2*8/10+se1*2/10;
+    }
+    let t=as1+as2+z1+z2;
+    total+=t/48*7;
+    if(a>=90){
+        total+=5;
+    }
+    else if(a>=85 && a<90){
+          total+=4;
+    }
+    else if(a>=80 && a<90){
+        total+=3;
+
+    }
+    else if(a>=75 && a<80){
+        total+=2;
+    }
+    else if(a>=70 && a<75){
+        total+=1;
+    }
+    else{
+        total+=0;
+    }
+    document.getElementById("total").innerText = `Total Marks: ${total.toFixed(2)}`;
+
+}
+</script>
+</body>
+</html>

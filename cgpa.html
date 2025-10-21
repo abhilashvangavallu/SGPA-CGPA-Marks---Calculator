@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height:96vh;
+            width:96vw;
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+            align-items: center;
+        }
+        .year{
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(220, 230, 233);
+            height: 96vh;
+            width:96vw;
+            background-size: cover;
+        }
+        .sem{
+            height:100px;
+            width:400px;
+            text-align: center;
+            background-color: bisque;
+            margin-bottom: 20px;
+            border-radius: 20px;
+        }
+        .submit{
+            background-color: rgb(227, 223, 231);
+            cursor:pointer;
+        }
+        .submit:hover{
+            background-color: blue;
+            color:white;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="year">
+        <h2>C-GPA Calculator for Semester-3 </h2>
+        <div class="sem">
+            <h4> Enter Semester-1 SGPA</h4>
+            <input type="number" id="sem-1">
+        </div>
+        <div class="sem">
+            <h4> Enter Semester-2 SGPA</h4>
+            <input type="number" id="sem-2">
+        </div>
+        <div class="sem">
+            <h4> Enter Semester-3 SGPA</h4>
+            <input type="number" id="sem-3">
+        </div>
+        <div id="total" style="text-align: center; font-weight: bold; margin-top: 20px;"></div>
+        <button onclick="calc()" class="submit" > Calculate</button>
+
+    </div>
+    <script>
+        function calc(){
+            let se1 = parseFloat(document.getElementById("sem-1").value) || 0;
+            let se2 = parseFloat(document.getElementById("sem-2").value) || 0;
+            let as1 = parseFloat(document.getElementById("sem-3").value) || 0;
+            let t=se1+se2+as1;
+            let average=t/3;
+            document.getElementById("total").innerText = `Total Marks: ${average.toFixed(2)}`;
+
+        }
+    </script>
+</body>
+</html>

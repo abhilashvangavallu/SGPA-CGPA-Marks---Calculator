@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items: center;
+        }
+        .build {
+             width: 100%;
+             max-width: 500px;
+             padding: 10px;
+             box-sizing: border-box;
+           }
+        .select {
+            margin-top:20vh;
+             width: 80%;  
+             height:300px;        
+             max-width: 300px;
+              padding: 20px;
+             background-color: rgb(146, 124, 127);
+             display: flex;
+             flex-direction: column;
+             justify-content: space-around;
+             align-items: center;
+             border-radius: 20px;
+         }
+         .page{
+            height:50px;
+            border-radius: 10px;
+            background-color: beige;
+            width:200px;
+            cursor:pointer;
+
+         }
+         .page:hover{
+            background-color: bisque;
+
+         }
+
+    </style>
+</head>
+<body>
+   
+    <div class="select">
+         
+        <div>
+            <button onclick="marks()" class="page">Internal marks</button>
+        </div>
+         <div>
+            <button onclick="sgpa()" class="page">S-GPA</button>
+        </div>
+         <div>
+            <button onclick="cgpa()" class="page">C-GPA</button>
+        </div>
+    </div>
+    <script>
+        function marks(){
+            window.location.href="box.html";
+        }
+        function sgpa(){
+            window.location.href="sgpa.html";
+        }
+        function cgpa(){
+            window.location.href="cgpa.html";
+        }
+    </script>
+</body>
+</html>
